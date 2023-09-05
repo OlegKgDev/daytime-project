@@ -9,11 +9,11 @@ const FileUploader: React.FC = () => {
 
   const { actions } = filesSlice;
   const status = useSelector((state) => state.files.status);
-  const uploadedFile = useSelector((state) => state.files.uploadedFile);
-  const processedFile = useSelector((state) => state.files.processedFile);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files ? event.target.files[0] : null;
+    if (!file) return;
+
     dispatch(
       actions.setUploadedFile({
         name: file.name,
