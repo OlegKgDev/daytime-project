@@ -4,18 +4,19 @@ import { useDispatch, useSelector } from "@/lib/redux/store";
 import { uploadFileAsync, filesSlice } from "@/lib/redux/slices/filesSlice";
 
 const FileUploader: React.FC = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const dispatch = useDispatch();
-
-  const { actions } = filesSlice;
   const status = useSelector((state) => state.files.status);
+
+  const { setUploadedFile } = filesSlice.actions;
+
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files ? event.target.files[0] : null;
     if (!file) return;
 
     dispatch(
-      actions.setUploadedFile({
+      setUploadedFile({
         name: file.name,
         data: URL.createObjectURL(file),
       }),

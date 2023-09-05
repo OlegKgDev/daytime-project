@@ -1,12 +1,12 @@
 /* Components */
 import FileUploader from "./components/FileUploader";
-import Hero from "./components/Hero";
+import Example from "./components/Example";
 import Result from "./components/Result";
 
 export default function IndexPage() {
   return (
     <div>
-      <Hero />
+      <Example />
       <FileUploader />
       <Result />
     </div>

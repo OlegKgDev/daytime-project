@@ -5,9 +5,9 @@ import Image from "next/image";
 import ImageSkeleton from "../general/ImageSkeleton";
 
 const Result: React.FC = () => {
-  const status = useSelector((state) => state.files.status);
-  const uploadedFile = useSelector((state) => state.files.uploadedFile);
-  const processedFile = useSelector((state) => state.files.processedFile);
+  const { status, uploadedFile, processedFile } = useSelector(
+    (state) => state.files,
+  );
 
   return (
     <div className="flex w-full h-96">

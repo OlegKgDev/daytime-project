@@ -8,7 +8,7 @@ initializeApp();
 setGlobalOptions({maxInstances: 10});
 
 const corsHandler = cors({
-  origin: ["http://localhost:3001"],
+  origin: ["http://localhost:3000", "https://daytime-project.vercel.app"],
 });
 
 export const generator = onRequest((req, res) => {
